@@ -24,4 +24,6 @@ public interface ProductController {
 
     @DeleteMapping("product/{id}")
     public void deleteProduct(@PathVariable String id);
+
+    
 }
