@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "product", url = "http://product:8080")
 public interface ProductController {
@@ -22,6 +23,10 @@ public interface ProductController {
     @GetMapping("/product/{id}")
     public ResponseEntity<ProductOut> findProduct(@PathVariable String id);
 
-    @DeleteMapping("product/{id}")
-    public void deleteProduct(@PathVariable String id);
+    @GetMapping("/product/search")
+    ResponseEntity<List<ProductOut>> searchByName(@RequestParam String name);
+
+    @DeleteMapping("/product/{id")  
+    ResponseEntity<Void> deleteProduct(@PathVariable String id); 
+
 }
